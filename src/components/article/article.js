@@ -136,11 +136,16 @@ function articleMaker(art) {
   par1.textContent = art.firstParagraph;
   par2.textContent = art.secondParagraph;
   par3.textContent = art.thirdParagraph;
-  // span.textContent = "+";
+  span.textContent = "+";
   console.log(article);
+
   ////////////////////////////////////////////////////////////////////// #2
+  span.addEventListener("click", (e) => {
+    // console.log(e.target);
+    article.classList.toggle("article-open")
+  })
 
-
+  ////////////////////////////////////////////////////////////////////// #3
   return article;
 }
 const articleElements = data.map(dataObj => {
