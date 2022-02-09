@@ -90,6 +90,59 @@ const data = [
   }
 ];
 
+// #1
+// function articleMaker(x) {
+//   const article = document.createElement("article");
+//   article.title = x.title;
+//   article.date = x.date;
+//   return article;
+// }
+
+// data.forEach(y => {
+//   const dataElement = articleMaker(y)
+//   document.body.prepend(dataElement);
+// })
+const articles = document.querySelector(".articles");
+
+
+function articleMaker({ date, firstParagraph, secondParagraph, thirdParagraph}) {
+  // <div class="article">
+  //   <h2>{title of the article}</h2>
+  //   <p class="date">{date of the article}</p>
+
+  //   {three separate paragraph elements}
+
+  //   <span class="expandButton">+</span>
+  // </div>
+  const article = document.createElement("div");
+  const title = document.createElement("h2");
+  const par1 = document.createElement("p");
+  const par2 = document.createElement("p");
+  const par3 = document.createElement("p");
+  const span = document.createElement("span");
+
+  article.appendChild(title);
+  article.appendChild(par1);
+  article.appendChild(par2);
+  article.appendChild(par3);
+  article.appendChild(span);
+
+  article.classList.add("article");
+  par1.classList.add("date");
+  par2.classList.add("date");
+  par3.classList.add("date");
+  span.classList.add("expandButton");
+
+  return article;
+}
+const articleElements = data.map(dataObj => {
+  return articleMaker(dataObj);
+})
+
+articleElements.forEach(panelElem => {
+  articles.appendChild(panelElem);
+})
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
