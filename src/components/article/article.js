@@ -2,6 +2,33 @@ import './article.less'
 // This is the data we will be using to create our articles. Look at it, then proceed to line 93.
 // OPTIONAL: if you're feeling adventurous, try to make this data an export from a different module, and import it here.
 // You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
+
+/*
+  Step 1: Write a component called 'articleMaker' to create an article.
+  Your component is a function that takes an article object as its only argument,
+  and returns a DOM node looking like the one below:
+
+  <div class="article">
+    <h2>{title of the article}</h2>
+    <p class="date">{date of the article}</p>
+
+    {three separate paragraph elements}
+
+    <span class="expandButton">+</span>
+  </div>
+
+  Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
+  This listener should toggle the class 'article-open' on div.article.
+
+  Step 3: Don't forget to return something from your function!
+
+  Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
+  to create a div.article element and append it to the DOM inside div.articles (see index.html).
+
+  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
+  Refresh the page to see the new article.
+*/
+
 const data = [
   {
     title: 'BloomTech Students: "We\'re the best!"',
@@ -87,7 +114,32 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+
+  ////////////////////////////////////////////////////////////////////// #5
+  // Step 5: Try adding new article object to the data array. Make sure it is 
+  // in the same format as the others. Refresh the page to see the new article.
+  {
+  title: 'My personal article all written in hipster ipsum',
+  date: 'Feb 9th, 2022',
+  firstParagraph: `I'm baby church-key intelligentsia snackwave cold-pressed freegan scenester green juice la croix godard chartreuse 
+        humblebrag lumbersexual deep v. Jean shorts freegan selvage authentic microdosing fixie. Butcher yuccie humblebrag pabst 
+        everyday carry chillwave health goth messenger bag church-key. Pop-up heirloom kombucha humblebrag green juice, bespoke la 
+        croix pickled tilde. Asymmetrical lumbersexual waistcoat kinfolk. Freegan crucifix pour-over next level. Iceland gentrify 
+        kogi, poke drinking vinegar asymmetrical banh mi.`,
+
+  secondParagraph: `Artisan dreamcatcher roof party, pop-up thundercats literally paleo. Pabst af gentrify four loko, hoodie shoreditch 
+        gochujang squid. Selvage tumblr humblebrag, wayfarers slow-carb pabst pork belly vegan ennui venmo godard pitchfork gentrify 
+        williamsburg. Kitsch kombucha humblebrag tote bag celiac kinfolk food truck pinterest keffiyeh narwhal leggings vice affogato 
+        adaptogen.`,
+
+  thirdParagraph: `Umami tbh man braid cornhole cliche lo-fi adaptogen vegan ennui tofu slow-carb irony chartreuse locavore pinterest. 
+        Flexitarian hammock tumeric cloud bread street art umami pork belly stumptown cronut beard blue bottle. Snackwave selfies food 
+        truck glossier, gluten-free sartorial bushwick sustainable butcher everyday carry man braid yr cornhole. Food truck wolf 
+        gastropub, poutine hell of butcher scenester bespoke church-key yr kitsch keytar. Shoreditch ethical austin, kogi listicle 
+        gentrify jean shorts portland offal meh retro bitters. Next level man braid cray, hexagon edison bulb four dollar toast chambray 
+        leggings shaman VHS offal adaptogen stumptown pork belly.`
+  },
 ];
 
 ////////////////////////////////////////////////////////////////////// #1
@@ -168,41 +220,3 @@ const articleE = data.map(dataObj => {
 articleE.forEach(articleList => {
   articles.appendChild(articleList)
 })
-
-/*
-  Step 1: Write a component called 'articleMaker' to create an article.
-  Your component is a function that takes an article object as its only argument,
-  and returns a DOM node looking like the one below:
-
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
-
-    {three separate paragraph elements}
-
-    <span class="expandButton">+</span>
-  </div>
-
-  Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
-  This listener should toggle the class 'article-open' on div.article.
-
-  Step 3: Don't forget to return something from your function!
-
-  Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
-  to create a div.article element and append it to the DOM inside div.articles (see index.html).
-
-  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
-  Refresh the page to see the new article.
-*/
-
-// function articleMaker(x) {
-//   const article = document.createElement("article");
-//   article.title = x.title;
-//   article.date = x.date;
-//   return article;
-// }
-
-// data.forEach(y => {
-//   const dataElement = articleMaker(y)
-//   document.body.prepend(dataElement);
-// })
